@@ -7,11 +7,11 @@ def print_board(board):
 
 def get_move(player, board):
     while True:
-        move = input(f"{player}'s turn (X or O): ")
+        move = input(f"{player}' ход (X or O): ")
         if move.isdigit() and 1 <= int(move) <= 9 and board[int(move) - 1] == " ":
             return int(move) - 1
         else:
-            print("Invalid move. Please try again.")
+            print("Неправильный ход, пробуй еще раз")
 
 def check_win(board):
     winning_positions = [(0, 1, 2), (3, 4, 5), (6, 7, 8),
@@ -28,14 +28,17 @@ def play_game():
     print_board(list(range(1, 10)))
     player = "X"
     while True:
+        print()
+        print_board(board)
+        print()
         move = get_move(player, board)
         board[move] = player
-        print_board(board)
+        print_board(list(range(1, 10)))
         if check_win(board):
-            print(f"{player} wins!")
+            print(f"{player} Выиграл")
             break
         if " " not in board:
-            print("It's a tie!")
+            print("Ничья!")
             break
         player = "O" if player == "X" else "X"
 

@@ -57,7 +57,7 @@ def game_candies(value, players):
             turn = 1
 
 
-count_candies = 100
+count_candies = 1001
 print('___ИГРА В КОНФЕТЫ___')
 print('Брать со стола можно от 1 до 28 конфет за раз')
 print('Кто последний делает ход - тот победил!')
