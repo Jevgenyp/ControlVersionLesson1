@@ -9,4 +9,6 @@ for i in range(0,len(a)-1):
         res = res +str(count)+a[i]
         count=1
 res = res +str(count)+a[i]
-print(res)
+record = open('data.txt', 'w')
+record.write(''.join(res))
+record.close()
