@@ -7,7 +7,9 @@
 #     a = 0
 # print(a)
     
-file = open('C:/Users/Jev/Desktop/GeekBrains/Python/HomeworkPy/Homework_Phyton/7_8_lesson/1.txt', 'r', encoding='utf-8')
-text = file.read()
-print(text)
-file.close()
+with open('C:/Users/Jev/Desktop/GeekBrains/Python/HomeworkPy/Homework_Phyton/7_8_lesson/1.txt', 'r', encoding='utf-8') as file:
+    for stroki in file:
+        print(stroki.strip())
+print()
+
+
