@@ -1,0 +1,113 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "provenance": [],
+      "authorship_tag": "ABX9TyN8Q/Ngi5RwHbnPinjua8wF",
+      "include_colab_link": true
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    },
+    "language_info": {
+      "name": "python"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/Jevgenyp/Homework_Phyton/blob/master/Lesson%209\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": 2,
+      "metadata": {
+        "id": "KNxJqss-AtSI"
+      },
+      "outputs": [],
+      "source": [
+        "import pandas as pd"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "# читаем\n",
+        "df = pd.read_csv('sample_data/california_housing_train.csv')"
+      ],
+      "metadata": {
+        "id": "_GzV4_L7BHrf"
+      },
+      "execution_count": 3,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "\n",
+        "# Выбор строк, где количество людей от 0 до 500\n",
+        "df_selected = df[(df['population'] >= 0) & (df['population'] <= 500)]\n",
+        "\n",
+        "# Вычисление средней стоимости дома в выбранных строках\n",
+        "mean_price = df_selected['median_house_value'].mean()\n",
+        "\n",
+        "print(\"Средняя стоимость дома, где количество людей от 0 до 500: \", mean_price)"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "outputId": "45164263-592b-486d-d717-7ef77b1c2417",
+        "id": "OmvTzRBv2cok"
+      },
+      "execution_count": 4,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Средняя стоимость дома, где количество людей от 0 до 500:  206799.95140186916\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "# Выбор строк, где population минимально\n",
+        "min_population = df['population'].min()\n",
+        "df_selected = df[df['population'] == min_population]\n",
+        "\n",
+        "# Нахождение максимального значения households в выбранных строках\n",
+        "max_households = df_selected['households'].max()\n",
+        "\n",
+        "print(\"Максимальное количество households в зоне с минимальным значением population: \", max_households)"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "YIGrSMUT3PiU",
+        "outputId": "3f834e9f-5a57-4925-ab84-fedeebf87ac8"
+      },
+      "execution_count": 5,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Максимальное количество households в зоне с минимальным значением population:  4.0\n"
+          ]
+        }
+      ]
+    }
+  ]
+}
